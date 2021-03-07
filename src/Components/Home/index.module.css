@@ -88,3 +88,14 @@
     padding-left: 80px;
   }
 }
+.RegisterButton{
+  display: flex;
+  justify-content: center;
+
+}
+.rbuton{
+  color: white !important;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+  font-weight: bolder !important;
+   border-radius: 10px !important;
+}
