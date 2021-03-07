@@ -1,0 +1,106 @@
+.Main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+.FirstMain{
+
+  width: 40%;
+  background-color: #e8eaf6;
+  margin-top: 30px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+  animation-name: moving;
+  animation-duration: 5s;
+
+  
+}
+.SecondMain{
+  width: 50%;
+
+}
+.SecondMain img{
+  padding-top: 10%;
+  width: 80%;
+  
+}
+.FirstMain h1{
+  padding-top: 100px;
+  font-family: Robot;
+  text-align: center;
+}
+
+.FirstMain p{
+  text-align: center;
+  text-decoration: solid;
+  font-size: 03rem;
+}
+.emoji{
+  padding-left: 150px;
+
+
+}
+@keyframes moving{
+  from{transform: translateX(0);}
+  to{transform: translateY(50px);}
+}
+
+@media screen and (max-width: 1021px) {
+  .FirstMain{
+
+    width: 50%;
+  }
+  .SecondMain{
+    width: 50%;
+  }
+  .SecondMain img{
+    padding-top: 80px;
+    width: 100%;
+    
+  }
+}
+@media screen and (max-width: 753px) {
+  .FirstMain{
+
+    width: 60%;
+  }
+  .SecondMain{
+    width: 40%;
+  }
+  .SecondMain img{
+    width: 100%;
+    height: 400px;
+    
+  }
+  .emoji{
+    padding-left: 100px;
+  
+  
+  }
+}
+@media screen and (max-width: 557px) {
+  .Main{
+    display: flex;
+    flex-direction: column;
+    
+    
+  }
+  .FirstMain{
+      padding: 5%;
+      margin-left: 05%;
+    width: 80%;
+  }
+  .SecondMain{
+    width: 90%;
+    
+    background-color: aqua;
+  }
+  
+  .emoji{
+    padding-left: 80px;
+  
+  
+  }
+}
