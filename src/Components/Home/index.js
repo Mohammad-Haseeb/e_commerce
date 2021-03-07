@@ -1,5 +1,5 @@
 import React from 'react';
-import  './index.css'
+import  Style from  './index.module.css'
 import logo from './logo.jpg';
 import emoji from './emoji.png';
 
@@ -7,15 +7,15 @@ import emoji from './emoji.png';
 export  let FirstMain=()=>{
     return(
         <>
-        <div className="Main">
-           <div className="FirstMain">
+        <div className={Style.Main}>
+           <div className={Style.FirstMain}>
                <h1>Dukan.pk</h1>
                <div>
                <p>We'll provide you everything under one umbrella</p>
-                  <img src={emoji} alt="emoji" className="emoji" />
+                  <img src={emoji} alt="emoji" className={Style.emoji} />
                 </div>
            </div>
-           <div className="SecondMain">
+           <div className={Style.SecondMain}>
                <img src={logo}  alt="logo" />
            </div>
 
