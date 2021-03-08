@@ -9,7 +9,7 @@ import Style from './personalinfo.module.css';
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(3),
       width: "25ch",
     },
   },
@@ -44,6 +44,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
         <div className={Style.containerBox}>
           <div>
             <Field
+            
               name="firstName"
               as={TextField}
               helperText={<ErrorMessage name="firstName" />}
@@ -66,7 +67,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
           </div>
           <div>
             <Field
-              name="email"
+              name="email"            
               as={TextField}
               helperText={<ErrorMessage name="email" />}
               type="email"

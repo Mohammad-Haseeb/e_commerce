@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
-   const SelectStyles=useStyles();
+   const SelectStyles=selectStyles();
   const classes = useStyles();
   const cardExpression= "^4[0-9]{12}(?:[0-9]{3})?$";
   const password=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/;
@@ -105,6 +105,7 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
           <MenuItem value={"Seller"}>Twenty</MenuItem>
          
         </ Field>
+        <FormHelperText>{<ErrorMessage name="status" />}</FormHelperText>
       </FormControl>
          
 
