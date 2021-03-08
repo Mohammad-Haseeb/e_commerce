@@ -40,7 +40,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
 
       }}
     >
-      <Form className={[classes.root,Style.mainContainer]}    >
+      <Form className={`${classes.root}  ${Style.mainContainer}`}   >
         <div className={Style.containerBox}>
           <div>
             <Field
