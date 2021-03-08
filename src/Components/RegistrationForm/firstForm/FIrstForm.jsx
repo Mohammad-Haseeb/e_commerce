@@ -26,17 +26,17 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
         firstName: Yup.string()
           .max(15, "Must be 15 characters or less")
           .required("Required"),
-        lastName: Yup.string()
+          phoneNumber: Yup.string()
         /* eslint-disable no-useless-escape */
         .matches(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g,"Enter valid number")
         .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
       })}
       onSubmit={(values) => {
-        // console.log("Value", values);
+        console.log("Value", values);
         submit(1)
 
-        setValues(...values);
+        setValues({...values});
 
       }}
     >
@@ -55,12 +55,12 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
           </div>
           <div>
           <Field
-            name="lastName"
+            name="phoneNumber"
             as={TextField}
-            helperText={<ErrorMessage name="lastName" />}
+            helperText={<ErrorMessage name="phoneNumber" />}
             type="text"
             id="standard-basic"
-            label="Standard"
+            label="Phone Number"
             variant="filled"
           />
           </div>
@@ -71,7 +71,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
               helperText={<ErrorMessage name="email" />}
               type="email"
               id="standard-basic"
-              label="Standard"
+              label="Email"
               variant="filled"
             />
           </div>

@@ -6,6 +6,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import {PersonaliNfo} from '../firstForm/FIrstForm'
 import {SensitiveInf0} from'../SecondFrom/secretInfo';
+import {Review} from '../Review/review';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,10 +30,10 @@ function getStepContent(stepIndex, setActiveStep,setFormValues,formValues) {
         case 0:  
             return <PersonaliNfo submit={setActiveStep} setValues={setFormValues} previousValue={formValues} /> 
         case 1:
-            return  <SensitiveInf0/>
+            return  <SensitiveInf0  submit={setActiveStep} setValues={setFormValues} previousValue={formValues}/>
         case 2:
-            return 
-            default:
+            return <Review values={formValues} />
+         default:
             return 'Unknown stepIndex';
     }
 }
