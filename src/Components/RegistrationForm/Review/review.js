@@ -28,7 +28,7 @@ export let Review = ({ submit, values }) => {
   RegisterPerson.setPassword(values.password);
   RegisterPerson.setUserType(values.status);
 
-  console.log("Review ", values);
+  // console.log("Review ", values);
   return (
     <>
       <div className={classes.root}>

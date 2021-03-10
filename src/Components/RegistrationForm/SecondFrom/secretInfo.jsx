@@ -15,15 +15,15 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 
 
-const selectStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(3),
-      minWidth: 260,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(3),
-    },
-  }));
+// const selectStyles = makeStyles((theme) => ({
+//     formControl: {
+//       margin: theme.spacing(3),
+//       minWidth: 260,
+//     },
+//     selectEmpty: {
+//       marginTop: theme.spacing(3),
+//     },
+//   }));
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
-   const SelectStyles=selectStyles();
+  //  const SelectStyles=selectStyles();
   const classes = useStyles();
   const cardExpression= "^4[0-9]{12}(?:[0-9]{3})?$";
   const password=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/;
@@ -56,7 +56,7 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
         .required("Required")
       })}
       onSubmit={(values) => {
-         console.log("Value", values);
+        //  console.log("Value", values);
         submit(2)
 
         setValues({...values,...previousValue});
