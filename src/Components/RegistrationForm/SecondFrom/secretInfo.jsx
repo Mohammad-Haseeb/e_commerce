@@ -63,6 +63,7 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
 
       }}
     >
+      <div>
       <Form className={`${classes.root}  ${Style.mainContainer}`}   >
         <div className={Style.containerBox}>
           
@@ -89,11 +90,11 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
             />
 
           </div>
-          
-          <FormControl variant="filled" className={SelectStyles.formControl}>
-        <InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
+          <div style={{justifyContent:"center"}}>
+                    <FormControl variant="filled" className={Style.formControl}>
+        <InputLabel id="  demo-simple-select-filled-label">Age</InputLabel>
         < Field as ={Select}
-        style={{margin: '6px', padding: '20px'}}
+           style={{ paddingTop: '20px', paddingLeft:"100px"}}
           labelId="demo-simple-select-filled-label"
           id="demo-simple-select-filled"
           name="status"
@@ -101,12 +102,14 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
            required
         >
           
-          <MenuItem value={"Buyer"}>Ten</MenuItem>
-          <MenuItem value={"Seller"}>Twenty</MenuItem>
+          <MenuItem value={"Buyer"} style={{textAlign:"left"}}>Buyer</MenuItem>
+          <MenuItem value={"Seller"}>Seller</MenuItem>
          
         </ Field>
         <FormHelperText>{<ErrorMessage name="status" />}</FormHelperText>
+        <FormHelperText>{<ErrorMessage name="status" />}</FormHelperText>
       </FormControl>
+      </div>
          
 
  
@@ -115,9 +118,12 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
          
           <button type="submit">Submit</button>
         </div>
+        
 
       </Form>
-     
+ 
+  </div>
+
     </Formik>
   );
 };

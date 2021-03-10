@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(3),
-      width: "25ch",
+      width: "35ch",
     },
   },
 }));
@@ -58,7 +58,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
           <Field
             name="phoneNumber"
             as={TextField}
-            helperText={<ErrorMessage name="phoneNumber" />}
+            helperText={<ErrorMessage  name="phoneNumber" />}
             type="text"
             id="standard-basic"
             label="Phone Number"
@@ -81,7 +81,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
         </div>
 
       </Form>
-     
+          
     </Formik>
   );
 };

@@ -32,7 +32,7 @@ function getStepContent(stepIndex, setActiveStep,setFormValues,formValues) {
         case 1:
             return  <SensitiveInf0  submit={setActiveStep} setValues={setFormValues} previousValue={formValues}/>
         case 2:
-            return <Review values={formValues} />
+            return <Review values={formValues} submit={setActiveStep}/>
          default:
             return 'Unknown stepIndex';
     }
