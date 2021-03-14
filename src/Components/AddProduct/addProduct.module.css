@@ -1,0 +1,29 @@
+.mainContainer{
+   display: flex;
+   justify-content: center;
+  
+
+
+}
+.innerContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 50px;
+}
+.innerContainer > div{
+    padding: 0px;
+    padding-top: 20px ;
+
+}
+
+/* .innerContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.innerContainer > div{
+    padding:  40px 0% 10px 50px;
+    padding-left: 10%;
+    padding-top: 3%;
+} */

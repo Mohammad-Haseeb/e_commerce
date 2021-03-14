@@ -1,0 +1,17 @@
+.h1{
+    text-align: center;
+}
+.loginHeading{
+    text-align: center;
+}
+.formsStyling{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+}
+.formsStyling >div{
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
