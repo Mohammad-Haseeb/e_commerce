@@ -10,5 +10,7 @@ export  class EnteryType{
       getuserType(){
          return  this.userType;
      }
+
+     
 }
 

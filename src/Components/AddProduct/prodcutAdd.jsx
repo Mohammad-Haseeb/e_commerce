@@ -1,39 +1,18 @@
-import React,{useRef,useState} from "react";
-import { Formik, Field, Form, ErrorMessage ,FormikProps} from "formik";
+import React,{useState} from "react";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Input from "@material-ui/core/Input";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import productStlye from './addProduct.module.css';import Box from '@material-ui/core/Box';
+import productStlye from './addProduct.module.css';
+import {AddProdcut} from './../../Logic/Main'
+import {login} from './../../Logic/Main';
 
 
-const UpladStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-  input: {
-    display: "none",
-  },
-}));
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-  },
-}));
 
 const SelectStyling = makeStyles((theme) => ({
   formControl: {
@@ -61,7 +40,7 @@ export const AddProductForm = () => {
     "Bags & Jewelery",
     "Automotive & Motorbike",
   ];
-  const Imageref = useRef()
+  
   
    let handleUploadClick = event => {
      if(event.target.files!=null){
@@ -70,7 +49,7 @@ export const AddProductForm = () => {
     reader.readAsDataURL(files[0])
    reader.onload=(e)=>{
     console.log("EVENT ", e.target.result);
-    setimageState(e.target.result);
+    setimageState(e.target.result.toString());
    }
   
    }
@@ -81,7 +60,7 @@ export const AddProductForm = () => {
    
 
   }
-  const Uploadclasses = UpladStyles();
+  
   const SelectStylingClasses = SelectStyling();
   return (
     <Formik
@@ -108,17 +87,27 @@ export const AddProductForm = () => {
         ProdcutCategory: Yup.string().required("Reuired"),
       })}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
+        const fd =new FormData();
+        fd.append("image",values.image);
+
+         console.log("FD : ", fd);
+          // console.log(values);
         values.image=imageState
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 400);
-        console.log({ 
-          fileName: values.file.name, 
-          type: values.file.type,
-          size: `${values.file.size} bytes`
-        })
+        // alert(values.ProductName)
+        AddProdcut.setMailID(login.email);
+         AddProdcut.SetInfo(values.ProdcutCategory, values.ProductName, values.prize, values.description, values.SalingType,imageState);
+         console.log(AddProdcut.category);
+         console.log("TRIPLE CHECK  : ",AddProdcut.image);
+         AddProdcut.setResult()
+        // console.log({ 
+        //   fileName: values.file.name, 
+        //   type: values.file.type,
+        //   size: `${values.file.size} bytes`
+        // })
 
       }}
     >

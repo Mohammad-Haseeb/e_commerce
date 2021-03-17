@@ -5,6 +5,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ForgetDialog from "../forgetPassword/forgetIndex"; 
 import Style from "./login.module.css";
+import {login} from './../../Logic/Main';
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,10 +26,28 @@ export let Login = () => {
   const classes = useStyles();
   const email = useRef();
   const password = useRef();
-  let handleSubmit = (e) => {
+  let navigate = useNavigate();
+  let handleSubmit = async  (e) => {
     e.preventDefault();
-    console.log(email.current.value);
-    console.log(password.current.value);
+    login.setEmail(email.current.value);
+    login.setPassword(password.current.value);
+    let redirect=await login.reuslt;
+    console.log("Redirect : ",redirect);
+      if(redirect !==undefined){
+     navigate(`/login/${await redirect}`)
+      }
+      else{
+     navigate(`/login/`)
+
+      }
+      
+    //    alert("Not found");
+    //  }
+    //  else{
+    //    alert("Found");
+    //  }
+    // console.log(email.current.value);
+    // console.log(password.current.value);
   };
   return (
     <>
