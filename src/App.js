@@ -1,3 +1,4 @@
+import React,{useState} from 'react';
 import './App.css';
  import {FirstMain} from './Components/Home/index.js';
 // import RegistrationForm  from './Components/RegistrationForm/Main/index';
@@ -10,25 +11,28 @@ import {
   Route
 } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
-
+import ProductList from './Components/productListDisplay/index';
+import RegistrationForm from './Components/RegistrationForm/Main/index';
+import {MyContext }  from './GlobalContext/context';
 function App() {
 
-  function Products() {
-    return <h1>Hello Prodcuts</h1>;
-  }
   
-
+  let CartState=useState([]);
   
   return (
     <>
+    <MyContext.Provider value={CartState}>
     <Navbar/>
+    
     <Routes>
         <Route path="/" element={<FirstMain/>} />
+        <Route path="/registration" element={<RegistrationForm/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/login/addproduct" element={<AddProductForm/>}/>
-        <Route path="/login/products" element={<Products/>}/>
+        <Route path="/login/products" element={<ProductList/>}/>
 
       </Routes>
+      </MyContext.Provider>
    
      {/* <AddProductForm/> */}
     {/* <FirstMain/> */}

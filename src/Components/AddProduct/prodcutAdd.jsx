@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {storage} from './../../firebase';
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,6 +12,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import productStlye from './addProduct.module.css';
 import {AddProdcut} from './../../Logic/Main'
 import {login} from './../../Logic/Main';
+
 
 
 
@@ -42,24 +44,16 @@ export const AddProductForm = () => {
   ];
   
   
-   let handleUploadClick = event => {
-     if(event.target.files!=null){
-    let files=event.target.files;
-    let reader=new FileReader();
-    reader.readAsDataURL(files[0])
-   reader.onload=(e)=>{
-    console.log("EVENT ", e.target.result);
-    setimageState(e.target.result.toString());
-   }
-  
-   }
-   else{
-    alert("hello")
+  let handleChange = e => {
+    if (e.target.files[0]) {
+      const image = e.target.files[0];
+      setimageState(() => ({image}));
+    }
   }
   
    
 
-  }
+  
   
   const SelectStylingClasses = SelectStyling();
   return (
@@ -98,11 +92,46 @@ export const AddProductForm = () => {
           setSubmitting(false);
         }, 400);
         // alert(values.ProductName)
+
         AddProdcut.setMailID(login.email);
-         AddProdcut.SetInfo(values.ProdcutCategory, values.ProductName, values.prize, values.description, values.SalingType,imageState);
+         AddProdcut.SetInfo(values.ProdcutCategory, values.ProductName, values.prize, values.description, values.SalingType);
          console.log(AddProdcut.category);
-         console.log("TRIPLE CHECK  : ",AddProdcut.image);
          AddProdcut.setResult()
+        
+      
+
+      setTimeout(function(){  
+        
+        const {image} = imageState;
+
+
+        const uploadTask = storage.ref(`images/${AddProdcut.id}`).put(image);
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+          // progrss function ....
+          
+        }, 
+        (error) => {
+             // error function ....
+          console.log(error);
+        }, 
+      );
+                
+        
+        console.log("COME ON : ",  AddProdcut.id);
+    }, 10000);
+        
+
+      // () => {
+    
+        // storage.ref('images').child(image.name).getDownloadURL().then(url => {
+            // console.log(url);
+            //  
+        // })
+    // }
+// 
+
+
         // console.log({ 
         //   fileName: values.file.name, 
         //   type: values.file.type,
@@ -218,18 +247,20 @@ export const AddProductForm = () => {
               Upload
             </label> 
             */}
-            <input id="file" name="file" type="file"  onChange={handleUploadClick}  required/>
+            {/* <input id="file" name="file" type="file"  onChange={handleUploadClick}  required/> */}
+            <input type="file" onChange={handleChange} required/>
+
 </div> 
      
      <div>
                <button type="submit">Submit</button>
                </div>
 
+                 
         </div>
 
 </div>
-       
-<img src={imageState} alt="nope"/>
+{/* <img src={imageState} alt="nope"/> */}
 
       </Form>
     </Formik>

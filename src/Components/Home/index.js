@@ -3,6 +3,8 @@ import  Style from  './index.module.css'
 import logo from './logo.jpg';
 import emoji from './emoji.png';
 import Button from '@material-ui/core/Button';
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -18,6 +20,7 @@ export  let FirstMain=()=>{
 }
 
 let FirstComponent=()=>{
+
     return(
         <>
         <div className={Style.Main}>
@@ -38,11 +41,17 @@ let FirstComponent=()=>{
 }
 
 let  RegisterBtn=()=>{
+  let navigate = useNavigate();
+
    return(
        <>
         <Button variant="contained" className={Style.rbuton} 
+        onClick={()=>{
+            navigate("/registration")
+            
+        }}
          style={{ backgroundImage:
-      'linear-gradient( 986deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)'}}>
+      'linear-gradient( 986deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)'}} >
         Registration
     </Button>
        </>

@@ -16,13 +16,13 @@ const handler = async (event) => {
   
         )
     );
-    console.log("Database",result);
+    console.log("Database",result.ref.id);
    
     const subject = event.queryStringParameters.name || 'World'
  
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` }),
+      body: JSON.stringify({ ID:result.ts }),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,

@@ -5,14 +5,14 @@ export  class Product {
 
            
   }
-  SetInfo(category, name, prize, specification, Saleing,image){
+  SetInfo(category, name, prize, specification, Saleing){
     this.setCategory(category);
     this.setName(name);
     this.setPrize(prize);
     this.setSpecification(specification);
     this.setSaleing(Saleing);
     this.setReview(0);
-    this.setImage(image);
+    
 
   }
   setImage(image){
@@ -64,6 +64,10 @@ export  class Product {
   setMailID(email){
     this.email=email;
   }
+
+setProdcutID(id){
+  this.id=id
+}
   setResult(){
     (async()=>{
                  let api=await fetch("/.netlify/functions/addProdcuts",{
@@ -76,13 +80,18 @@ export  class Product {
                     ProductSalingType:this.saling,
                     "OwnerEmail":this.email,
                    " Review":this.review,
-                   ImageDetails:this.image,
+                  
                   
                     
 
                   })
+
                  })
-                console.log("print",api);
+                 let data =await api.json()
+                console.log( "yup yup yup data : ", await data.ID);
+                await this.setProdcutID(data.ID);
+
+
     })()
   }
 }
