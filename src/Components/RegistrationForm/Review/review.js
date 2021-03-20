@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { RegisterPerson } from "../../../Logic/Main";
+import Button from '@material-ui/core/Button';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -19,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export let Review = ({ submit, values }) => {
  
 
+  let navigate = useNavigate();
 
   const classes = useStyles();
   RegisterPerson.setName(values.firstName);
@@ -38,12 +41,13 @@ export let Review = ({ submit, values }) => {
           <p>Email : {values.email}</p>
           <p>Card Number : {values.CreditCardNumber}</p>
           <p>Password : {values.password}</p>
-          <p>Statis : {}</p>
-          <button onClick={(_) => submit(0)}>Previous</button>
          
-            <button onClick={()=>{
+         
+            <Button variant="contained" color="primary" style={{width:"100px"}}  onClick={()=>{
               RegisterPerson.sendData()
-            }}>Confirm</button>         
+            navigate("/login")
+
+            }}>Confirm</Button>         
                </Paper>
       </div>
     </>

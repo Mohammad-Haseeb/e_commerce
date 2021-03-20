@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Style from './personalinfo.module.css';
-
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,7 +77,7 @@ export const PersonaliNfo = ({submit,setValues,previousValue}) => {
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <Button variant="contained" color="primary" style={{width:"90px"}} type="submit">Submit</Button>
         </div>
 
       </Form>

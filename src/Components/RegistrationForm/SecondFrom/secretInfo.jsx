@@ -11,6 +11,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
+import Button from '@material-ui/core/Button';
+
 
 
 
@@ -92,7 +94,7 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
           </div>
           <div style={{justifyContent:"center"}}>
                     <FormControl variant="filled" className={Style.formControl}>
-        <InputLabel id="  demo-simple-select-filled-label">Age</InputLabel>
+        <InputLabel id="  demo-simple-select-filled-label">Status</InputLabel>
         < Field as ={Select}
            style={{ paddingTop: '20px', paddingLeft:"100px"}}
           labelId="demo-simple-select-filled-label"
@@ -116,7 +118,7 @@ export const SensitiveInf0 = ({submit,setValues,previousValue}) => {
 
           
          
-          <button type="submit">Submit</button>
+          <Button variant="contained" color="primary" style={{width:"90px"}} type="submit">Submit</Button>
         </div>
         
 

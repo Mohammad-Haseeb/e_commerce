@@ -12,6 +12,8 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import productStlye from './addProduct.module.css';
 import {AddProdcut} from './../../Logic/Main'
 import {login} from './../../Logic/Main';
+import Button from '@material-ui/core/Button';
+
 
 
 
@@ -253,7 +255,7 @@ export const AddProductForm = () => {
 </div> 
      
      <div>
-               <button type="submit">Submit</button>
+               <Button  variant="contained" color="primary" style={{width:"90px"}} type="submit">Submit</Button>
                </div>
 
                  
